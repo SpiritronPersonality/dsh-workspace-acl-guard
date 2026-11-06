@@ -1,0 +1,18 @@
+# dsh-workspace-acl-guard bundle patch.
+#
+# Install from the DSH plugin manager (individual users can publish/install
+# npm packages directly), or link a local checkout:
+#   dsh plugin --profile <name> add "<absolute path to this checkout>"
+#
+# The plugin is read-only: it never writes a security descriptor. Disable or
+# remove the row to uninstall; its journal under $DSH_HOME/acl-guard is plain
+# JSONL and is never read by DSH itself.
+
+- insert:
+    - id: workspace-acl-guard
+      name: 'dsh-workspace-acl-guard'
+      config:
+        locale: zh
+        watch: true
+        intervalMs: 15000
+        scanKnownFolders: true

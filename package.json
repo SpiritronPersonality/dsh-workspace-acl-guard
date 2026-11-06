@@ -1,0 +1,42 @@
+{
+  "name": "dsh-workspace-acl-guard",
+  "version": "0.1.0",
+  "description": "Read-only detector for DSH Windows sandbox ACL side effects on workspace roots: status, scanning, baseline journal, and a system-prompt warning. Writes no ACL.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/**/*.js",
+    "assets/**",
+    "patch.yml",
+    "README.md",
+    "README.zh.md",
+    "LICENSE",
+    "docs/**"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./patch.yml"
+    }
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "selftest": "node scripts/selftest.mjs"
+  },
+  "engines": {
+    "node": ">=22.15"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "plugin",
+    "windows",
+    "acl",
+    "sandbox",
+    "diagnostics"
+  ],
+  "license": "MIT"
+}

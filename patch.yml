@@ -1,4 +1,4 @@
-# dsh-workspace-acl-guard bundle patch.
+﻿# dsh-workspace-acl-guard bundle patch.
 #
 # Install from the DSH plugin manager (individual users can publish/install
 # npm packages directly), or link a local checkout:
@@ -14,5 +14,5 @@
       config:
         locale: zh
         watch: true
-        intervalMs: 15000
+        intervalMs: 60000
         scanKnownFolders: true

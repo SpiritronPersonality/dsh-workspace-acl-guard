@@ -1,4 +1,4 @@
-# dsh-workspace-acl-guard
+﻿# dsh-workspace-acl-guard
 
 一个**只读**的 DSH 插件，把 Windows 沙箱对工作区根写入的 **ACL 副作用**变得可见。
 
@@ -60,7 +60,7 @@ node scripts/selftest.mjs "C:\Users\me\Desktop" "C:\work" --known
 |---|---|---|
 | `locale` | `zh` | 输出语言：`zh` / `en` |
 | `watch` | `true` | 后台观察会话工作区与已知文件夹 |
-| `intervalMs` | `15000` | 观察周期（5 秒–10 分钟） |
+| `intervalMs` | `60000` | 观察周期（5 秒–10 分钟） |
 | `scanKnownFolders` | `true` | 每轮是否包含 Windows 已知文件夹 |
 
 ## 工具

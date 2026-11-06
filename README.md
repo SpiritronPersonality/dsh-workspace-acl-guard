@@ -1,4 +1,4 @@
-# dsh-workspace-acl-guard
+﻿# dsh-workspace-acl-guard
 
 A read-only DSH plugin that makes the Windows sandbox's **workspace ACL side effects** visible.
 
@@ -64,7 +64,7 @@ node scripts/selftest.mjs "C:\Users\me\Desktop" "C:\work" --known
 |---|---|---|
 | `locale` | `zh` | Output language: `zh` or `en`. |
 | `watch` | `true` | Background watcher over the session workspace and known folders. |
-| `intervalMs` | `15000` | Watcher period (5s–10min). |
+| `intervalMs` | `60000` | Watcher period (5s–10min). |
 | `scanKnownFolders` | `true` | Include the Windows known folders in every tick. |
 
 Example:
@@ -76,7 +76,7 @@ Example:
       config:
         locale: en
         watch: true
-        intervalMs: 15000
+        intervalMs: 60000
 ```
 
 ## Tools

@@ -46,7 +46,7 @@ or install it from the Web **Plugins** page.
 ### From a local checkout
 
 ```sh
-git clone https://github.com/<you>/dsh-workspace-acl-guard
+git clone https://github.com/SpiritronPersonality/dsh-workspace-acl-guard
 dsh plugin --profile <profile> add "<absolute path to the checkout>"
 ```
 

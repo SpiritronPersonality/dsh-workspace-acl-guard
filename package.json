@@ -38,5 +38,14 @@
     "sandbox",
     "diagnostics"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SpiritronPersonality/dsh-workspace-acl-guard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SpiritronPersonality/dsh-workspace-acl-guard/issues"
+  },
+  "homepage": "https://github.com/SpiritronPersonality/dsh-workspace-acl-guard#readme",
+  "author": "SpiritronPersonality"
 }

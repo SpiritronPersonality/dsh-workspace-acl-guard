@@ -42,7 +42,7 @@ dsh plugin --profile <profile> add dsh-workspace-acl-guard
 ### 本地目录
 
 ```sh
-git clone https://github.com/<you>/dsh-workspace-acl-guard
+git clone https://github.com/SpiritronPersonality/dsh-workspace-acl-guard
 dsh plugin --profile <profile> add "<本地目录的绝对路径>"
 ```
 

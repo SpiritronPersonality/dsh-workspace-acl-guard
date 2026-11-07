@@ -3,11 +3,11 @@ import assert from 'node:assert/strict';
 
 import { apply } from '../lib/index.js';
 
-function mockContext(names) {
+function mockContext(tools) {
   return {
     tools: {
       register(tool) {
-        names.push(tool.name);
+        tools.push(tool);
         return () => {};
       },
     },
@@ -19,10 +19,36 @@ function mockContext(names) {
 }
 
 test('apply registers the three read-only tools', () => {
-  const names = [];
-  const close = apply(mockContext(names), { watch: false });
-  assert.deepEqual(names.sort(), ['acl_journal', 'acl_scan', 'acl_status']);
+  const tools = [];
+  const close = apply(mockContext(tools), { watch: false });
+  assert.deepEqual(tools.map((tool) => tool.name).sort(), ['acl_journal', 'acl_scan', 'acl_status']);
   assert.equal(typeof close, 'function');
+  close();
+});
+
+test('tool text is Chinese by default', async () => {
+  const tools = [];
+  const close = apply(mockContext(tools), { watch: false });
+  const status = tools.find((tool) => tool.name === 'acl_status');
+
+  assert.match(status.description, /[\u4e00-\u9fff]/);
+  assert.match(status.parameters.properties.path.description, /[\u4e00-\u9fff]/);
+
+  const failure = await status.execute({}, {});
+  assert.equal(failure.ok, false);
+  assert.match(failure.error, /[\u4e00-\u9fff]/);
+
+  close();
+});
+
+test('locale en switches tool text to English', () => {
+  const tools = [];
+  const close = apply(mockContext(tools), { watch: false, locale: 'en' });
+  const status = tools.find((tool) => tool.name === 'acl_status');
+
+  assert.match(status.description, /Inspect/);
+  assert.doesNotMatch(status.description, /[\u4e00-\u9fff]/);
+
   close();
 });
 

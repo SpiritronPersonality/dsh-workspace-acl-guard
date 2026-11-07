@@ -1,12 +1,10 @@
-﻿# dsh-workspace-acl-guard bundle patch.
+# dsh-workspace-acl-guard 的组合包补丁。
 #
-# Install from the DSH plugin manager (individual users can publish/install
-# npm packages directly), or link a local checkout:
-#   dsh plugin --profile <name> add "<absolute path to this checkout>"
+# 安装：在 DSH 的「插件」页安装，或链接本地目录：
+#   dsh plugin --profile <profile> add "<本目录的绝对路径>"
 #
-# The plugin is read-only: it never writes a security descriptor. Disable or
-# remove the row to uninstall; its journal under $DSH_HOME/acl-guard is plain
-# JSONL and is never read by DSH itself.
+# 本插件是只读的：绝不写安全描述符。停用或删除这一行即可卸载；
+# 它写在 $DSH_HOME/acl-guard 的日志是普通 JSONL，DSH 本身不会读取。
 
 - insert:
     - id: workspace-acl-guard

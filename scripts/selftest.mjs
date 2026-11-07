@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Command-line self test: probe paths and print the analyzed status.
- * Does not load DSH and does not write any ACL.
+ * 命令行自检：探测路径并输出分析后的状态。
+ * 不加载 DSH，不写任何 ACL。
  *
  *   node scripts/selftest.mjs "F:\work" "C:\Users\me\Desktop" --known
  */
@@ -15,14 +15,14 @@ const paths = args.filter((value) => value !== '--known');
 const locale = process.env.DSH_ACL_GUARD_LOCALE === 'en' ? 'en' : 'zh';
 
 if (process.platform !== 'win32') {
-  console.error('selftest: Windows only');
+  console.error('自检：仅支持 Windows');
   process.exit(2);
 }
 
 const targets = paths.length > 0 ? paths : [process.cwd()];
 const records = await probe(targets, { includeKnown });
 if (records.length === 0) {
-  console.error('selftest: probe returned no records');
+  console.error('自检：探针没有返回记录');
   process.exit(1);
 }
 

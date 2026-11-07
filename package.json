@@ -1,7 +1,7 @@
 {
   "name": "dsh-workspace-acl-guard",
-  "version": "0.1.0",
-  "description": "Read-only detector for DSH Windows sandbox ACL side effects on workspace roots: status, scanning, baseline journal, and a system-prompt warning. Writes no ACL.",
+  "version": "0.1.1",
+  "description": "只读的 DSH 插件：检测并记录 Windows 沙箱在工作区根上留下的 ACL 副作用，提供状态检查、扫描、基线日志和系统提示预警，不写任何 ACL。",
   "type": "module",
   "main": "lib/index.js",
   "exports": {
@@ -13,7 +13,7 @@
     "assets/**",
     "patch.yml",
     "README.md",
-    "README.zh.md",
+    "README.en.md",
     "LICENSE",
     "docs/**"
   ],

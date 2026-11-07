@@ -1,32 +1,29 @@
-# Security policy
+# 安全说明
 
-## What this plugin can do
+## 这个插件能做什么
 
-- read Windows security descriptors (owner, DACL, SACL integrity label);
-- compute effective `WRITE_DAC` / `WRITE_OWNER` for the current user;
-- run `powershell.exe` as the current user, without elevation, for each probe;
-- append JSONL records under `$DSH_HOME/acl-guard`.
+- 读取 Windows 安全描述符（所有者、DACL、SACL 完整性标签）；
+- 按当前令牌计算有效 `WRITE_DAC` / `WRITE_OWNER`；
+- 以当前用户身份、不提权地运行 `powershell.exe` 完成每次探测；
+- 在 `$DSH_HOME/acl-guard` 下追加 JSONL 记录。
 
-## What it cannot do
+## 它不能做什么
 
-- write, reset, or repair a security descriptor;
-- change an owner, remove a deny entry, or edit inheritance;
-- elevate (no UAC, no `runas`);
-- access the network;
-- replace, wrap, or disable any DSH service.
+- 写入、重置或修复安全描述符；
+- 修改所有者、删除拒绝项或改动继承；
+- 提权（不弹 UAC、不走 `runas`）；
+- 访问网络；
+- 替换、包装或关闭任何 DSH 服务。
 
-## Threat model
+## 威胁模型
 
-The plugin is a diagnostic. It is **not** a security boundary and does not make the sandbox
-safer. A malicious actor who can already write to the plugin directory can replace the probe
-script; treat the checkout and the installed package with the same trust as any other local
-plugin.
+这是一个诊断工具，**不是安全边界**，也不会让沙箱更安全。能改写插件目录的人可以替换探测脚本；
+请像对待其他本地插件一样对待本仓库与已安装的包。
 
-The journal is plain text and contains paths, owner SIDs, and SDDL. It is stored under the
-user's profile (`$DSH_HOME`) and is never uploaded. Redact SIDs and paths before sharing it.
+日志是纯文本，包含路径、所有者 SID 与 SDDL，存放在用户目录（`$DSH_HOME`）下，从不上传。
+对外分享前请先脱敏。
 
-## Reporting a vulnerability
+## 报告安全问题
 
-Open a private security advisory on the repository, or email the maintainer listed in
-`package.json`. Please include the plugin version, the DSH version, and a minimal reproduction.
-Do not include personal paths or SIDs.
+请在仓库提交私密安全公告，或发邮件给 `package.json` 中列出的维护者。请附上插件版本、DSH 版本
+和最小复现步骤；不要包含个人路径或 SID。

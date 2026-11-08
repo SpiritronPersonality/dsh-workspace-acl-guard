@@ -37,18 +37,18 @@ This plugin **does not fix or prevent** that rewrite. It answers three questions
 
 ## Install
 
-### From npm (recommended)
-
-```sh
-dsh plugin --profile <profile> add dsh-workspace-acl-guard
-```
-
-or install it from the Web **Plugins** page.
-
-### From a local checkout
+### From GitHub (current recommendation)
 
 ```sh
 git clone https://github.com/SpiritronPersonality/dsh-workspace-acl-guard
+dsh plugin --profile <profile> add "<absolute path to the checkout>"
+```
+
+> The npm package has not been published yet, so `dsh plugin add dsh-workspace-acl-guard` does not work for now.
+
+### From an existing checkout
+
+```sh
 dsh plugin --profile <profile> add "<absolute path to the checkout>"
 ```
 

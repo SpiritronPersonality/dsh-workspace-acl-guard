@@ -33,19 +33,19 @@
 
 ## 安装
 
-### 从 npm（推荐）
-
-```sh
-dsh plugin --profile <profile> add dsh-workspace-acl-guard
-```
-
-或在 Web 的「插件」页安装。
-
-### 本地目录
+### 从 GitHub 安装（当前推荐）
 
 ```sh
 git clone https://github.com/SpiritronPersonality/dsh-workspace-acl-guard
-dsh plugin --profile <profile> add "<本地目录的绝对路径>"
+dsh plugin --profile <profile> add "<克隆目录的绝对路径>"
+```
+
+> npm 包尚未发布，`dsh plugin add dsh-workspace-acl-guard` 暂时不可用；发布后会在这里更新。
+
+### 本地已有目录
+
+```sh
+dsh plugin --profile <profile> add "<本目录的绝对路径>"
 ```
 
 ### 不装 DSH 也能用
